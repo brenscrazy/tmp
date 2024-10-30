@@ -4,11 +4,7 @@
 intro = """
 
                 
-                     https://kwork.ru/user/alex_500
-
-                      Разработчик Alex_500 Кворк
-
-                         Запустили Моего Бота!
+    
 """
 
 print(intro)
@@ -33,7 +29,7 @@ phone = ''          #enter here phone number with country code
 client = TelegramClient(phone, api_id, api_hash)
 async def main():
     # Now you can use all client methods listed below, like for example...
-    await client.send_message('me', 'Привет, спасибо за доверие к нам!/n/nНаши боты с полезными скриптами - https://kwork.ru/user/alex_500')
+    await client.send_message('me', 'Hi')
 
 
 SLEEP_TIME_1 = 100
@@ -84,13 +80,13 @@ print(intro)
 
 
 
-print('Выберите группу для добавления участников:')
+print('Select group:')
 i = 0
 for group in groups:
     print(str(i) + '- ' + group.title)
     i += 1
 
-g_index = input("Введите номер: -1001848283683")
+g_index = input("Number: -1001848283683")
 target_group = groups[int(g_index)]
 
 target_group_entity = InputPeerChannel(target_group.id, target_group.access_hash)
@@ -101,7 +97,7 @@ os.system('CLS')
 print(intro)
 
 
-mode = int(input("Введите 1, чтобы добавить пользователей и нажмите ентр"))
+mode = int(input("Enter 1 to add users"))
 
 n = 0
 
@@ -116,7 +112,7 @@ for user in users:
         time.sleep(2)
         os.system('CLS')
         print(intro)
-        print("Добавляю - Пропускаю из за настроек пользователя: {}".format(user['id']))
+        print("Skip: {}".format(user['id']))
         if mode == 1:
             if user['username'] == "":
                 continue
@@ -126,20 +122,20 @@ for user in users:
         else:
             sys.exit("Invalid Mode Selected. Please Try Again.")
         client(InviteToChannelRequest(target_group_entity, [user_to_add]))
-        print("Новый Пользователь Будет Добавлен через 60-90 секунд. Ожидайте...")
+        print("Wait 60-90 sec...")
         time.sleep(random.randrange(60, 90))
     except PeerFloodError:
-        print("Flood Error From Telegram. 'Ошибка Флуда' Продолжу работу через 100 сек...")
+        print("Flood Error From Telegram. Wait 100 sec...")
         print("Ждём {} сек".format(SLEEP_TIME_2))
         time.sleep(SLEEP_TIME_2)
     except UserPrivacyRestrictedError:
-        print("Настройки Пользователя не позволяют Добавить его. Пропускаю")
-        print("Ждите 5 секунд...")
+        print("Skip user")
+        print("Wait 5 sec...")
         time.sleep(5)
     except:
         traceback.print_exc()
         os.system('CLS')
         print(intro)
         time.sleep(1)
-        print(" Продолжу через 5 секунд...!")
+        print("Wait 5 sec...!")
         time.sleep(5)
