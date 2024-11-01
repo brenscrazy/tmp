@@ -1,0 +1,39 @@
+﻿1) Скачай Python, версии 3.8.10: https://www.python.org/​ (Обязательно ставь все галочки установки)
+
+2) Далее открыть командную строку, нажать win+r , прописать команду cmd, нажать ентр.Далее прописать данные
+библиотеки, после каждой,нажать ентр.
+
+Библиотеки:
+
+pip install telethon
+pip3 install pyrogram
+pip3 install colorama
+
+3) Скачай NotePad: https://notepad-plus-plus.org/downloads или Atom и др.
+
+4) Получи App api_id:      https://my.telegram.org/apps
+    Получи App api_hash: https://my.telegram.org/apps
+
+5) Открой "adder" в папке со Скриптом любым удобным редактором:
+
+Заполни эти строчки: Как получить данные ? 3) Пункт: https://my.telegram.org/apps
+api_id = 
+api_hash = '(Тут твой hash)' 
+phone =
+
+6) Открой "scrapper" в папке со Скриптом любым удобным редактором:
+
+Заполни эти строчки: Как получить данные ? 4) Пункт: https://my.telegram.org/apps
+api_id = 
+api_hash = '(Тут твой hash)' 
+phone =
+
+7)Запускай "Запуск Скрипта" в Папке со Скриптом. Дальше все просто, номер телефона - код
+Выбираешь свою группу, жмешь Enter!!
+
+Аналогично проделать и с файлом "scrapper-Парсер" начиная с пункта (5)
+
+Удачи.
+
+
+
