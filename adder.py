@@ -46,12 +46,15 @@ with open(r"ListGood.csv", encoding='UTF-8') as f:  #Enter your file name
     rows = csv.reader(f,delimiter=",",lineterminator="\n")
     next(rows, None)
     for row in rows:
-        user = {}
-        user['username'] = row[0]
-        user['id'] = int(row[1])
-        user['access_hash'] = int(row[2])
-        user['name'] = row[3]
-        users.append(user)
+        try:
+            user = {}
+            user['username'] = row[0]
+            user['id'] = int(row[1])
+            user['access_hash'] = int(row[2])
+            user['name'] = row[3]
+            users.append(user)
+        except ValueError:
+            print("Bad line skipped")
 
 chats = []
 last_date = None
